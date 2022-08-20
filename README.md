@@ -2,12 +2,11 @@
 DACON 여행 상품 신청 여부 예측 경진대회
 ## 1. Project Overview
   - 목표
-    - 상품 리뷰 텍스트로 상품의 평점을 예측.
-    - 주어진 쇼핑몰 리뷰 데이터셋을 이용하여 상품의 평점(1점, 2점, 4점, 5점)을 분류.
+    - 여행 상품 신청 여부 예측(1: Taken, 0: Not Taken)
   - 모델
-    - [klue/bert-base](https://github.com/KLUE-benchmark/KLUE) fine-tuned model.
+    - 
   - Data
-    - 쇼핑몰 리뷰 데이터셋 (train: 25000개, test: 25000개).
+    - 
 
 ## 2. Code Structure
 ``` text
