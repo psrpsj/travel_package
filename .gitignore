@@ -3,3 +3,5 @@ submission.csv
 submission_ensemble.csv
 logs.log
 submission_ensemble_hard.csv
+catboost_info/
+submission_catboost.csv
