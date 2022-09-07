@@ -4,34 +4,23 @@ DACON 여행 상품 신청 여부 예측 경진대회
   - 목표
     - 여행 상품 신청 여부 예측(1: Taken, 0: Not Taken)
   - 모델
-    - 
-  - Data
-    - 
+    - Extra Tree Classifier, Random Forest, Catboost등 다양한 분류 모델 실험
 
 ## 2. Code Structure
 ``` text
-├── dataset
-|   ├── stopword.txt
-|   ├── train.csv (not in repo)
-|   └── test.csv  (not in repo)
-├── argument.py
-├── dataset.py
-├── inference.py
-├── preprocess.py
-└── train.py
+├── dataset (not in repo)
+|   ├── sample_submission.csv
+|   ├── train.csv
+|   └── test.csv 
+└── travel_prediction.ipynb
 ```
 
 ## 3. Detail 
   - Preprocess 
-    - 정규표현식을 이용한 특수문자 제거.
-    - [Open Korean Text Processor](https://github.com/open-korean-text/open-korean-text) 를 이용한 Stopword(출처: https://www.ranks.nl/stopwords/korean) 제거.
-    - [py-hanspell](https://github.com/ssut/py-hanspell)을 이용한 맞춤법 교정.
+    - EDA를 통한 데이터 특성에 맞는 전처리 진행(Scaling, Correlation을 통한 결측치 제거 등)
   - Model
-    - 전처리 된 데이터를 klue/bert-base에 fine-tunning 과정을 거침.
-    - K-Fold(5 Fold)의 교차 검증과증을 통해 보다 정교한 모델 제작(Public Accuracy 기준 0.02 상승)
-    - Batch size: 16 / Epoch : 5
-  - Inference
-    - 각 Fold model의 inference 과정을 거친후 나온 softmax 확률을 soft-voting 과정을 거쳐 최종추론 함.
+    - AutoML을 최적의 모델을 k-Fold를 이용하여 교차검증 한 후, 모델을 학습시킴(제출모델: Extra Tree Classifier)
+    - 대회 마감 후, Catboost의 특성(범주화 데이터에 적합)을 이용 Optuna를 통한 Hyperparameter 최적화를 통한 추론 또한 진행
   - 최종성적
-    - Public Score: 0.6972 (22th/549)
-    - Private Score: 0.69968(24th/549)
+    - Public Score: 0.9011
+    - Private Score: 0.89943
