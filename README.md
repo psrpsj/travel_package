@@ -1,4 +1,5 @@
 # travel_package
+[Report](https://sangryu-notes.notion.site/c216db1e255349d88cf42d9765def2dd)
 DACON 여행 상품 신청 여부 예측 경진대회
 ## 1. Project Overview
   - 목표
